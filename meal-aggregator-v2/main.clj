@@ -26,28 +26,10 @@
       (let [foods (-> @response :body (cheshire/parse-string true) :foods)]
         (->> foods (mapv :nf_calories) (apply +))))))
 
-(def cache-path
-  ".nutritionix-cache.edn")
-
-(defn maybe-read-cache []
-  (try
-    (edn/read-string (slurp cache-path))
-    (catch Exception _ {})))
-
-(defn memoised-estimate-calories [query]
-  (let [cache         (maybe-read-cache)
-        cached-result (cache query)]
-    (if cached-result
-      cached-result
-      (let [result (estimate-calories query)
-            new-cache (assoc cache query result)]
-        (spit cache-path (pr-str new-cache))
-        result))))
-
 (defn fill-meals-calories [meal]
   (if (:calories meal)
     meal
-    (assoc meal :calories (memoised-estimate-calories (:description meal)))))
+    (assoc meal :calories (estimate-calories (:description meal)))))
 
 ;; ---------------------------------------------------------------------------
 ;; Middlewares
