@@ -80,7 +80,7 @@
                            (group-by :date)
                            (mapv
                              (fn [[date meals]]
-                              (let [entry {:calories (map :calories meals)
+                              (let [entry {:calories (apply + (map :calories meals))
                                            :meals (map #(dissoc % :date) meals)}]
                                 [date entry])))
                            (into {}))]
@@ -92,8 +92,8 @@
 ;; ---------------------------------------------------------------------------
 
 (def routes
-  {"/fill-calories" {:get fill-calories}
-   "/aggregate-meals" {:get aggregate-meals}})
+  {"/fill-calories" {:post fill-calories}
+   "/aggregate-meals" {:post aggregate-meals}})
 
 ;; ---------------------------------------------------------------------------
 ;; Service
