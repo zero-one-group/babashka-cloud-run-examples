@@ -34,7 +34,7 @@
         (let [spends (-> request :body slurp (cheshire/parse-string true))]
           {:body (aggregate-spends spends)
            :headers {"Content-Type" "application/json"}})
-        {:body (str request)}))
+        {:body "Route not found!" :status 404}))
     {:port 8080})
   @(promise))
 
