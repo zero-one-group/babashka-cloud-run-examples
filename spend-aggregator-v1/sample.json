@@ -1,0 +1,41 @@
+[ {
+  "description" : "haircut",
+  "amount" : 70000,
+  "currency" : "IDR",
+  "date" : "2020-12-01"
+}, {
+  "description" : "lunch",
+  "amount" : 25000,
+  "currency" : "IDR",
+  "date" : "2020-12-01"
+}, {
+  "description" : "amazon",
+  "amount" : 120,
+  "currency" : "USD",
+  "date" : "2020-12-01"
+}, {
+  "description" : "movie",
+  "amount" : 32000,
+  "currency" : "IDR",
+  "date" : "2020-12-02"
+}, {
+  "description" : "phone credit",
+  "amount" : 100000,
+  "currency" : "IDR",
+  "date" : "2020-12-02"
+}, {
+  "description" : "software subscription",
+  "amount" : 12,
+  "currency" : "EUR",
+  "date" : "2020-12-02"
+}, {
+  "description" : "train",
+  "amount" : 10000,
+  "currency" : "IDR",
+  "date" : "2020-12-03"
+}, {
+  "description" : "coffee",
+  "amount" : 8000,
+  "currency" : "IDR",
+  "date" : "2020-12-03"
+} ]
